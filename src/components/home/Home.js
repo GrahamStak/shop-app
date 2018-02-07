@@ -1,13 +1,8 @@
 import React, {Component} from 'react'
 import {Modal, Button} from 'react-bootstrap'
 import './Home.css'
-import pkg from '../../../package.json'
 
 class Home extends Component {
-  constructor(){
-    super()
-  }
-
   render(){
     const {items, cart} = this.props
     const line_items = []

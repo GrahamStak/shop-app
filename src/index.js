@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Provider } from 'react-redux'
+// import { Provider } from 'react-redux'
 
 import Container from './components/app/App'
 import Home from './components/home/Home'
-import About from './components/about/About'
+// import About from './components/about/About'
 import './index.css'
-import store from './store'
+// import store from './store'
 import axios from 'axios'
 import {API_URL} from './env'
 

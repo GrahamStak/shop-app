@@ -9,10 +9,8 @@ const db = require('APP/db')
 function seedEverything() {
   const seeded = {
     users: users(),
-    things: things(),
   }
 
-  seeded.favorites = favorites(seeded)
 
   return Promise.props(seeded)
 }
