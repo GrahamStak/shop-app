@@ -1,5 +1,5 @@
 import React from 'react'
-import './Dishes.css'
+import './Menu.css'
 
 const Dishes = props => (
 	<div className="gtco-section">

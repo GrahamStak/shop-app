@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom'
 import './App.css'
 import pkg from '../../../package.json'
 import Header from '../header/Header'
-import Dishes from '../dishes/Dishes'
+import Menu from '../menu/Menu'
 import Services from '../services/Services'
 import Stats from '../funstats/Funstats'
 import Footer from '../footer/Footer'
@@ -41,12 +41,8 @@ const App = props => (
 
       </div>
     </nav>
-    <Header/>
-    <Dishes/>
-    <Services/>
-    <Stats/>
-    <Footer/>
     { props.children && React.cloneElement(props.children, props) }
+    <Footer/>
   </div>
 )
 

@@ -1,6 +1,10 @@
 import React, {Component} from 'react'
 import {Modal, Button} from 'react-bootstrap'
 import './Home.css'
+import Header from '../header/Header'
+import Menu from '../menu/Menu'
+import Services from '../services/Services'
+import Stats from '../funstats/Funstats'
 
 class Home extends Component {
   render(){
@@ -13,30 +17,10 @@ class Home extends Component {
     })
     return(
       <div className='Home'>
-        <header className='Home-header'>
-          <h2>Check out our shop!</h2>
-        </header>
-        <ul>
-          {items.map((item) => {
-            return <li key={item.id}>{item.name} <button onClick={() => this.props.addToCart(item)}>BUY</button></li>
-          })}
-        </ul>
-        <div className="static-modal">
-        <Modal show={this.props.cartOpen}>
-          <Modal.Header >
-            <Modal.Title>Shopping Cart</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <ul>
-              {line_items}
-            </ul>
-            <p>Total: ${total}</p>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.props.toggleCart}>Close</Button>
-          </Modal.Footer>
-        </Modal>
-        </div>
+    <Header/>
+    <Menu/>
+    <Services/>
+    <Stats/>
       </div>
     )
   }
