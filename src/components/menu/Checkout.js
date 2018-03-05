@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Modal, Button} from 'react-bootstrap'
-import './Home.css'
+import './Checkout.css'
 
 class Home extends Component {
   render(){
