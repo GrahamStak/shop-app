@@ -1,3 +1,4 @@
+require('dotenv').config()
 import React, {Component} from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -5,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Container from './components/app/App'
 import Home from './components/home/Home'
-// import About from './components/about/About'
+import Shop from './components/shop/Shop'
 import './index.css'
 // import store from './store'
 import axios from 'axios'
@@ -55,19 +56,26 @@ class App extends Component {
   }
 
   render(){
-    const {items} = this.state
+    const {items, cart} = this.state
     return(
         <Router>
           <Container toggleCart={this.toggleCart}>
             <Switch>
               <Route exact path='/' component={({match, history, location}) => {
                       return (
-                        <Home 
-                          items={items}
-                          addToCart={this.addToCart}
+                        <Home
                           cartOpen={this.state.cartOpen}
                           toggleCart={this.toggleCart}
                           cart={this.state.cart}/>
+                      )}} />
+              <Route exact path='/shop' component={({match, history, location}) => {
+                      return (
+                        <Shop 
+                          items={items}
+                          cart={cart}
+                          addToCart={this.addToCart}
+                          cartOpen={this.state.cartOpen}
+                          toggleCart={this.toggleCart}/>
                       )}} />
             </Switch>
           </Container>

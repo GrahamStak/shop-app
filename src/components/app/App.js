@@ -2,10 +2,6 @@ import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import './App.css'
 import pkg from '../../../package.json'
-import Header from '../header/Header'
-import Menu from '../menu/Menu'
-import Services from '../services/Services'
-import Stats from '../funstats/Funstats'
 import Footer from '../footer/Footer'
 /*
   The .active className is being applied to '/' even when it isn't the current
@@ -30,6 +26,7 @@ const App = props => (
           <div className="col-xs-8 text-right menu-1">
             <ul>
               <li className="btn-cta"><NavLink to='/about' isActive={onlyOneActiveMatch}>About</NavLink></li>
+              <li className="btn-cta"><a href="/shop"><span>Shop</span></a></li>
               <li className="btn-cta"><a href=""><span>Contact</span></a></li>
               <li className="btn-cta"><a href=""><span>Reservation</span></a></li>
               <li className="btn-cta">
