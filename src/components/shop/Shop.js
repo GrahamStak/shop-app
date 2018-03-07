@@ -26,12 +26,6 @@ class Shop extends Component {
             <div className='Shop'>
                 <Menu addToCart={this.props.addToCart}/>
                 <div>
-                    <p>Click to get the full Modal experience!</p>
-
-                    <Button bsStyle="primary" bsSize="large" onClick={this.props.toggleCart}>
-                        Launch demo modal
-                    </Button>
-
                     <ItemModal 
                         cart={cart}
                         handleClose={this.handleClose}

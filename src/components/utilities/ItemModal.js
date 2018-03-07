@@ -18,10 +18,9 @@ class ItemModal extends Component {
         return(
             <Modal show={this.props.show} onHide={this.props.toggleCart}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Shopping Cart</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <h4>Shopping Cart</h4>
                     <ul>
                         {lineItems}
                     </ul>

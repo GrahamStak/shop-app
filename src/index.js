@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Container from './components/app/App'
 import Home from './components/home/Home'
 import Shop from './components/shop/Shop'
+import Login from './components/admin/Login'
+import Dashboard from './components/admin/Dashboard'
 import './index.css'
 // import store from './store'
 import axios from 'axios'
@@ -50,9 +52,15 @@ class App extends Component {
     this.setState({cart})
   }
 
-  checkout(){
+  checkout = () => {
     //do api call to finalize order
     // axios.post()
+  }
+
+  deleteItem = (id) => {
+    axios.post('/items/delete', {id}).then(items => {
+      this.setState({items})
+    })
   }
 
   render(){
@@ -76,6 +84,18 @@ class App extends Component {
                           addToCart={this.addToCart}
                           cartOpen={this.state.cartOpen}
                           toggleCart={this.toggleCart}/>
+                      )}} />
+              <Route exact path='/login' component={({match, history, location}) => {
+                      return (
+                        <Login 
+                          login={this.login}/>
+                      )}} />
+              <Route exact path='/admin' component={({match, history, location}) => {
+                      return (
+                        <Dashboard 
+                          items={items}
+                          logout={this.logout}
+                          deleteItem={this.deleteItem}/>
                       )}} />
             </Switch>
           </Container>

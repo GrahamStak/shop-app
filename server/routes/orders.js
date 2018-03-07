@@ -6,17 +6,24 @@ const stripe = require("stripe")(keySecret);
 const db = require('APP/db')
 
 module.exports = require('express').Router()
-  .get('/',
-    (req, res, next) => {
-      db.select().from('items').timeout(1000)
-      .then((rows) => {
-        return res.status(200).json(rows)
-      })
-    })
   .post('/',
     (req, res, next) => {
-      db('items').insert(req.body)
-      .then((result) => {
-        return res.status(201).json(result)
-      })
+      const amount  = req.body.amount
+      const item = {
+        name:req.body.name,
+        description:req.body.description,
+        price:req.body.amount,
+      }
+      stripe.customers.create({
+        email: req.body.email,
+       source: req.body.source
+     })
+     .then(customer =>
+       stripe.charges.create({
+         amount,
+         description: "Sample Charge",
+            currency: "usd",
+            customer: customer.id
+       }))
+     .then(charge => res.status(201).json(charge))
     })
