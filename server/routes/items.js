@@ -21,6 +21,14 @@ module.exports = require('express').Router()
       })
       .then(items => res.status(200).json(items))
     })
+  .post('/delete',
+    (req, res, next) => {
+      Item.destroy({where:{id:req.body.id}}).then((item) => {
+        return Item.findAll({})
+      })
+      .then(items => {
+        return res.status(200).json(items)})
+    })
   .get('/:id',
     (req, res, next) => {
       Item.findOne({where: {id: req.params.id}})

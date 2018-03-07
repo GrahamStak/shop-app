@@ -5,7 +5,7 @@ import {Modal, Button} from 'react-bootstrap'
 const ConfirmModal = props => (
 
     <Modal show={props.show} >
-        <Modal.Header closeButton>
+        <Modal.Header>
             <Modal.Title>{props.heading}</Modal.Title>
         </Modal.Header>
         <Modal.Body>

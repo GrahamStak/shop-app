@@ -58,8 +58,8 @@ class App extends Component {
   }
 
   deleteItem = (id) => {
-    axios.post('/items/delete', {id}).then(items => {
-      this.setState({items})
+    axios.post('http://localhost:1337/api/items/delete', {id}).then(res => {
+      this.setState({items:res.data})
     })
   }
 

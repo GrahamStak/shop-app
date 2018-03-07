@@ -32,14 +32,15 @@ class Dashboard extends Component {
                 <button>New</button>
                 <ItemTable 
                     items={this.props.items}
-                    confirmDelete={this.props.openModal} />
-                <ConfirmModal
-                    show={modalShow}
-                    heading="Item Delete"
-                    id={selected.id}
-                    message={`Are you sure you want to delete ${selected.name}`}
-                    confirm={this.props.deleteItem}
-                    cancel={this.closeModal}/>
+                    confirmDelete={this.openModal} />
+                {modalShow && selected && 
+                    <ConfirmModal
+                        show={modalShow}
+                        heading="Item Delete"
+                        id={selected.id}
+                        message={`Are you sure you want to delete ${selected.name}`}
+                        confirm={this.props.deleteItem}
+                        cancel={this.closeModal}/>}
             </div>
         )
   }
