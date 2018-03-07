@@ -33,7 +33,7 @@ const Checkout = ({ name, description, amount }) =>
     amount={fromEuroToCent(1000)}
     token={onToken(1000, 'description test')}
     currency={CURRENCY}
-    stripeKey={PUBLISHABLE_KEY}
+    stripeKey={'pk_test_vdWgSye63TfSHEhkyzYU3Art'}
   />
 
 export default Checkout;

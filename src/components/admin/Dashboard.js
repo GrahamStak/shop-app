@@ -29,7 +29,7 @@ class Dashboard extends Component {
         return(
             <div>
                 <h4>Admin Dashboard</h4>
-                <button onClick={}>New</button>
+                <button>New</button>
                 <ItemTable 
                     items={this.props.items}
                     confirmDelete={this.props.openModal} />
